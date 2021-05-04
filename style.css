@@ -1,0 +1,46 @@
+
+* {
+    box-sizing: border-box;
+    font-size: 10px;
+    
+    /* For the bg gradient */
+    --Soft-violet: hsl(273, 75%, 66%);
+    --Soft-blue: hsl(240, 73%, 65%);
+}
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(var(--Soft-violet), var(--Soft-blue));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+#primary-card {
+    background: white;
+    padding: 10rem 0;
+    max-width: 920px;
+    /* min-height: 525px; */
+    min-width: 920px;
+    /* max-height: 525px; */
+    border-radius: 2.5rem;
+
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+img {
+
+    position: relative;
+    left: -8rem;
+}
+
+#pc-content-panel {
+    flex-grow: 1;
+    border: 2px solid red;
+    margin: 0 10rem 0 0;
+}
