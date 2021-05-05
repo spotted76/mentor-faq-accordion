@@ -1,11 +1,18 @@
 
-* {
-    box-sizing: border-box;
+:root {
+    font-family: 'Kumbh Sans', sans-serif;
     font-size: 10px;
     
     /* For the bg gradient */
     --Soft-violet: hsl(273, 75%, 66%);
     --Soft-blue: hsl(240, 73%, 65%);
+
+    /* Divider */
+    --Light-grayish-blue: hsl(240, 5%, 91%);
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -21,7 +28,7 @@ body {
 
 #primary-card {
     background: white;
-    padding: 10rem 0;
+    padding: 8rem 0;
     max-width: 920px;
     /* min-height: 525px; */
     min-width: 920px;
@@ -34,16 +41,58 @@ body {
 }
 
 #hero-img {
-
     position: relative;
     left: -8rem;
-    
+}
+
+#mobile-img {
+    display: none;
 }
 
 #pc-content-panel {
     flex-grow: 1;
-    border: 2px solid red;
-    margin: 0 10rem 0 0;
+    margin: 0 8rem 0 0;
+}
+
+h1 {
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 3.2rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li:hover {
+    cursor:pointer;
+}
+
+ul li:hover .qa {
+    font-weight: 700;
+}
+
+ul li {
+    line-height: 4rem;
+}
+
+.qa {
+    font-size: 1.2rem;
+    font-weight: 400;
+    border-bottom: 1px solid var(--Light-grayish-blue);
+    padding-right: 2rem;
+}
+
+.question {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.answer {
+    display: none;
 }
 
 @media (max-width: 930px)
@@ -61,10 +110,19 @@ body {
         min-height: 540px;
         max-height: 540px;
         padding: 15rem 0 5rem 0;
+        position: relative;
+        overflow: visible;
     }
 
     #hero-img {
         display: none;
+    }
+
+    #mobile-img {
+        display: block;
+        position: absolute;
+        top: -11rem;
+        right: 40px;
     }
 
     #pc-content-panel {
