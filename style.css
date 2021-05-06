@@ -26,10 +26,15 @@ body {
 }
 
 
-
+main {
+    position: relative; /* This allows the box to float above the card, which does not allow overflow */
+}
 
 #primary-card {
     background: white;
+    background-image: url("./images/bg-pattern-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: -57rem -29rem;
     padding: 8rem 0;
     max-width: 920px;
     min-width: 920px;
@@ -38,6 +43,7 @@ body {
     display: flex;
     flex-direction: row;
     overflow: hidden;
+    position: relative;
 }
 
 #hero-img {
@@ -124,6 +130,13 @@ ul li p{
     /* margin-top: 0; */
 }
 
+#orange-cube {
+    position: absolute;
+    top: 23rem;
+    left: -13rem;
+    z-index: 1;
+}
+
 @media (max-width: 930px)
 {
     body {
@@ -138,6 +151,8 @@ ul li p{
         padding: 12rem 0 5rem 0;
         position: relative;
         overflow: visible;
+        background-image: url("./images/bg-pattern-mobile.svg");
+        background-position: 3.9rem -.5rem;
     }
 
     #hero-img {
@@ -163,5 +178,9 @@ ul li p{
     #pc-content-panel {
         margin: 0 2rem;
         height: 37rem;
+    }
+
+    #orange-cube {
+        display:none;
     }
 }
