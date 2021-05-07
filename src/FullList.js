@@ -1,9 +1,14 @@
 
 import Question from './Question.js';
 
-
+/*
+ * \brief This class maintains the full list of quesitons and answers.
+ */
 export default class FullList {
     
+    /* 
+     * \brief Contructor, epects an ul as the passed argument
+     */
     constructor(ulElement) {
 
         this.ul = ulElement;
@@ -11,20 +16,33 @@ export default class FullList {
 
     }
 
+    /*
+     * \brief Registers a click listener on the entire ul (should be more efficient)
+     *        Walks through the UL, pulling out each li element, and creating a 
+     *        question instance for each one, storing them in an array 
+     */
     initialize() {
 
         this.ul.addEventListener('click', (evt) => {
+            evt.stopPropagation();
             this.listClicked(evt);    
         });
 
         const liElements = this.ul.querySelectorAll('li');
-        for(let x = 0; x < liElements.length; x++) {
-            this.questions.push(new Question(liElements[x]));
+        for ( let element of liElements ) {
+            this.questions.push(new Question(element));
         }
+
     }
 
+    /*
+     * \brief Function called when a anything within the ul has been clicked.
+     *        this function discards clicks for the answer category, as an 
+     *        expanded category should not trigger a collapse.  Additionally, 
+     *        this method will collapse any question that has been expanded, so
+     *        that only 1 question can be expanded at a time 
+     */
     listClicked(evt) {
-        console.log('list clicked');
         const target = evt.target;
 
         //Make sure it's not the question, want to ignore this
@@ -35,10 +53,10 @@ export default class FullList {
             let clickedQuestion;
 
             // First, collapse anything that is expanded 
-            for(let x = 0; x < this.questions.length; x++) {
-               if (this.questions[x].equals(parentQuestion)) {
-                   clickedQuestion = this.questions[x];
-               }
+            for( let question of this.questions) {
+                if (question.equals(parentQuestion)) {
+                    clickedQuestion = question;
+                } 
             }
 
             if ( clickedQuestion ) {
@@ -48,9 +66,9 @@ export default class FullList {
                 }
                 else {
                     //Close all the others, and open this one
-                    for(let x = 0; x < this.questions.length; x++) {
-                        if (this.questions[x].isExpanded()) {
-                            this.questions[x].toggleExpanded();
+                    for(let question of this.questions) {
+                        if (question.isExpanded()) {
+                            question.toggleExpanded();
                             break;
                         }
                      }

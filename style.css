@@ -11,6 +11,8 @@
     --Light-grayish-blue: hsl(240, 5%, 91%);
 
     --Dark-grayish-blue: hsl(240, 6%, 50%);
+    --Very-dark-desaturated-blue: hsl(238, 29%, 16%);
+    --Soft-red: hsl(14, 88%, 65%);
 }
 
 * {
@@ -83,7 +85,7 @@ ul .question:hover {
 
 ul .question:hover p{
     font-weight: 700;
-    color: black;    
+    color: var(--Soft-red);
 }
 
 p {
@@ -113,13 +115,20 @@ ul li p{
 }
 
 
+.question img {
+    transition-property: transform;
+    transition-duration: 0.25s;
+}
+
+.expanded .question img {
+    transform: rotate(180deg);
+}
+
+
 .answer {
     display: none;
 }
 
-/* .collapsed .answer {
-    display: none;
-} */
 
 .expanded .answer {
     display: block;
@@ -127,6 +136,8 @@ ul li p{
 
 .expanded .question > p {
     margin-bottom: 0;
+    font-weight: 700;
+    color: black;
 }
 
 
