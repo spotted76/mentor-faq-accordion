@@ -113,10 +113,13 @@ ul li p{
 }
 
 
-
-.collapsed .answer {
+.answer {
     display: none;
 }
+
+/* .collapsed .answer {
+    display: none;
+} */
 
 .expanded .answer {
     display: block;
@@ -126,9 +129,6 @@ ul li p{
     margin-bottom: 0;
 }
 
-.expanded .answer {
-    /* margin-top: 0; */
-}
 
 #orange-cube {
     position: absolute;
