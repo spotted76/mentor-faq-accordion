@@ -105,6 +105,7 @@ ul li p{
     font-weight: 400;
     border-bottom: 1px solid var(--Light-grayish-blue);
     padding-right: 2rem;
+    overflow: hidden;
 }
 
 .question {
@@ -114,6 +115,9 @@ ul li p{
     justify-content: space-between;
 }
 
+.question p {
+    margin: 0;
+}
 
 .question img {
     transition-property: transform;
@@ -126,12 +130,16 @@ ul li p{
 
 
 .answer {
-    display: none;
+    /* display: none; */
+    height: 0px;
+    transition-property: height;
+    transition-duration: 0.5s;
 }
 
 
 .expanded .answer {
-    display: block;
+    /* display: block; */
+    /* height: 50px; */
 }
 
 .expanded .question > p {
