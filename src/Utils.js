@@ -1,5 +1,12 @@
 
 
+/*
+ * \brief For a given ul, li, and question/answer, this function will
+ *  calculate the dimensions within the container. 
+ * 
+ * @returns BoundingRect
+ */
+
 function calculateHiddenDimensions(parentContainer, hiddenContainer) {
 
     // Duplicate the passed object, and append a hidden expanded version
@@ -17,8 +24,6 @@ function calculateHiddenDimensions(parentContainer, hiddenContainer) {
     parentContainer.removeChild(ghost);
 
     return dimensions;
-
-    
 }
 
 
